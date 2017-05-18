@@ -1,0 +1,153 @@
+@startuml
+annotation java.lang.Override
+annotation javafx.fxml.FXML
+annotation javax.xml.bind.annotation.XmlElement
+annotation javax.xml.bind.annotation.XmlRootElement
+annotation javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+class addressbook.StartApp
+class addressbook.model.Person
+class addressbook.model.PersonListWrapper
+class addressbook.resources.PersonData
+class addressbook.resources.util.DateUtil
+class addressbook.resources.util.EMailValidator
+class addressbook.resources.util.LocalDateAdapter
+class addressbook.view_controller.PersonEditDialogController
+class addressbook.view_controller.PersonOverviewController
+class addressbook.view_controller.RootLayoutController
+class java.io.File
+class java.io.IOException
+class java.time.LocalDate
+class java.time.format.DateTimeFormatter
+class java.time.format.DateTimeParseException
+class java.util.List
+class java.util.Locale
+class java.util.Objects
+class java.util.prefs.Preferences
+class java.util.regex.Matcher
+class java.util.regex.Pattern
+class javafx.application.Application
+class javafx.beans.property.IntegerProperty
+class javafx.beans.property.ObjectProperty
+class javafx.beans.property.SimpleIntegerProperty
+class javafx.beans.property.SimpleObjectProperty
+class javafx.beans.property.SimpleStringProperty
+class javafx.beans.property.StringProperty
+class javafx.collections.FXCollections
+class javafx.collections.ObservableList
+class javafx.collections.transformation.FilteredList
+class javafx.collections.transformation.SortedList
+class javafx.event.ActionEvent
+class javafx.event.Event
+class javafx.fxml.FXMLLoader
+class javafx.scene.Scene
+class javafx.scene.control.Alert
+class javafx.scene.control.Alert.AlertType
+class javafx.scene.control.Button
+class javafx.scene.control.Label
+class javafx.scene.control.MenuItem
+class javafx.scene.control.TableColumn
+class javafx.scene.control.TableView
+class javafx.scene.control.TextField
+class javafx.scene.control.cell.PropertyValueFactory
+class javafx.scene.image.Image
+class javafx.scene.layout.AnchorPane
+class javafx.scene.layout.BorderPane
+class javafx.stage.FileChooser
+class javafx.stage.Modality
+class javafx.stage.Stage
+class javax.xml.bind.JAXBContext
+class javax.xml.bind.Marshaller
+class javax.xml.bind.Unmarshaller
+class javax.xml.bind.annotation.adapters.XmlAdapter
+interface java.lang.Comparable
+interface java.util.Comparator
+addressbook.StartApp ..> java.lang.Override
+addressbook.StartApp ..> addressbook.model.Person
+addressbook.StartApp ..> addressbook.model.PersonListWrapper
+addressbook.StartApp ..> addressbook.resources.PersonData
+addressbook.StartApp ..> addressbook.view_controller.PersonEditDialogController
+addressbook.StartApp ..> addressbook.view_controller.PersonOverviewController
+addressbook.StartApp ..> addressbook.view_controller.RootLayoutController
+addressbook.StartApp ..> java.io.File
+addressbook.StartApp ..> java.io.IOException
+addressbook.StartApp ..> java.util.prefs.Preferences
+addressbook.StartApp --|> javafx.application.Application
+addressbook.StartApp ..> javafx.collections.ObservableList
+addressbook.StartApp ..> javafx.fxml.FXMLLoader
+addressbook.StartApp ..> javafx.scene.Scene
+addressbook.StartApp ..> javafx.scene.control.Alert
+addressbook.StartApp ..> javafx.scene.control.Alert.AlertType
+addressbook.StartApp ..> javafx.scene.image.Image
+addressbook.StartApp ..> javafx.scene.layout.AnchorPane
+addressbook.StartApp ..> javafx.scene.layout.BorderPane
+addressbook.StartApp ..> javafx.stage.Modality
+addressbook.StartApp ..> javafx.stage.Stage
+addressbook.StartApp ..> javax.xml.bind.JAXBContext
+addressbook.StartApp ..> javax.xml.bind.Marshaller
+addressbook.StartApp ..> javax.xml.bind.Unmarshaller
+addressbook.model.Person ..> java.lang.Override
+addressbook.model.Person ..> javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter
+addressbook.model.Person ..> addressbook.resources.util.LocalDateAdapter
+addressbook.model.Person ..> java.time.LocalDate
+addressbook.model.Person ..> java.util.Objects
+addressbook.model.Person ..> javafx.beans.property.IntegerProperty
+addressbook.model.Person ..> javafx.beans.property.ObjectProperty
+addressbook.model.Person ..> javafx.beans.property.SimpleIntegerProperty
+addressbook.model.Person ..> javafx.beans.property.SimpleObjectProperty
+addressbook.model.Person ..> javafx.beans.property.SimpleStringProperty
+addressbook.model.Person ..> javafx.beans.property.StringProperty
+addressbook.model.Person --|> java.lang.Comparable
+addressbook.model.Person --|> java.util.Comparator
+addressbook.model.PersonListWrapper ..> javax.xml.bind.annotation.XmlElement
+addressbook.model.PersonListWrapper ..> javax.xml.bind.annotation.XmlRootElement
+addressbook.model.PersonListWrapper ..> java.util.List
+addressbook.resources.PersonData ..> addressbook.model.Person
+addressbook.resources.PersonData ..> javafx.collections.FXCollections
+addressbook.resources.PersonData ..> javafx.collections.ObservableList
+addressbook.resources.util.DateUtil ..> java.time.LocalDate
+addressbook.resources.util.DateUtil ..> java.time.format.DateTimeFormatter
+addressbook.resources.util.DateUtil ..> java.time.format.DateTimeParseException
+addressbook.resources.util.DateUtil ..> java.util.Locale
+addressbook.resources.util.EMailValidator ..> java.util.regex.Matcher
+addressbook.resources.util.EMailValidator ..> java.util.regex.Pattern
+addressbook.resources.util.LocalDateAdapter ..> java.lang.Override
+addressbook.resources.util.LocalDateAdapter ..> java.time.LocalDate
+addressbook.resources.util.LocalDateAdapter --|> javax.xml.bind.annotation.adapters.XmlAdapter
+addressbook.view_controller.PersonEditDialogController ..> javafx.fxml.FXML
+addressbook.view_controller.PersonEditDialogController ..> addressbook.model.Person
+addressbook.view_controller.PersonEditDialogController ..> addressbook.resources.util.DateUtil
+addressbook.view_controller.PersonEditDialogController ..> addressbook.resources.util.EMailValidator
+addressbook.view_controller.PersonEditDialogController ..> javafx.event.ActionEvent
+addressbook.view_controller.PersonEditDialogController ..> javafx.scene.control.Alert
+addressbook.view_controller.PersonEditDialogController ..> javafx.scene.control.Alert.AlertType
+addressbook.view_controller.PersonEditDialogController ..> javafx.scene.control.Button
+addressbook.view_controller.PersonEditDialogController ..> javafx.scene.control.TextField
+addressbook.view_controller.PersonEditDialogController ..> javafx.stage.Stage
+addressbook.view_controller.PersonOverviewController ..> javafx.fxml.FXML
+addressbook.view_controller.PersonOverviewController ..> addressbook.StartApp
+addressbook.view_controller.PersonOverviewController ..> addressbook.model.Person
+addressbook.view_controller.PersonOverviewController ..> addressbook.resources.util.DateUtil
+addressbook.view_controller.PersonOverviewController ..> javafx.beans.property.ObjectProperty
+addressbook.view_controller.PersonOverviewController ..> javafx.beans.property.SimpleObjectProperty
+addressbook.view_controller.PersonOverviewController ..> javafx.collections.transformation.FilteredList
+addressbook.view_controller.PersonOverviewController ..> javafx.collections.transformation.SortedList
+addressbook.view_controller.PersonOverviewController ..> javafx.event.ActionEvent
+addressbook.view_controller.PersonOverviewController ..> javafx.event.Event
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.Alert
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.Alert.AlertType
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.Button
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.Label
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.TableColumn
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.TableView
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.TextField
+addressbook.view_controller.PersonOverviewController ..> javafx.scene.control.cell.PropertyValueFactory
+addressbook.view_controller.PersonOverviewController ..> java.util.Comparator
+addressbook.view_controller.RootLayoutController ..> javafx.fxml.FXML
+addressbook.view_controller.RootLayoutController ..> addressbook.StartApp
+addressbook.view_controller.RootLayoutController ..> java.io.File
+addressbook.view_controller.RootLayoutController ..> javafx.event.ActionEvent
+addressbook.view_controller.RootLayoutController ..> javafx.scene.control.Alert
+addressbook.view_controller.RootLayoutController ..> javafx.scene.control.Alert.AlertType
+addressbook.view_controller.RootLayoutController ..> javafx.scene.control.MenuItem
+addressbook.view_controller.RootLayoutController ..> javafx.stage.FileChooser
+@enduml
