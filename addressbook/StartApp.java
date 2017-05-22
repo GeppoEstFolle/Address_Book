@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,10 +34,11 @@ public class StartApp extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     
-    private ObservableList<Person> personList; 
+    private ObservableList<Person> personList= FXCollections.observableArrayList(); 
+    private Preferences pref;
     
     public StartApp(){
-        this.personList=PersonData.getPersonData();
+        personList=PersonData.getPersonData();
     }
     
     @Override
@@ -79,14 +81,16 @@ public class StartApp extends Application {
            //Give the controller acces to Start App.
            RootLayoutController controller = loader.getController();
            controller.setInitialize(this);
-           
+           // Try to load last opened person file.
+           if(pref != null){
+            File file = getPersonFilePath();
+             if (file != null) {
+               loadPersonDataFromFile(file);}
+           }
         } catch (IOException e) {
           e.printStackTrace();
-        }
-       // Try to load last opened person file.
-        File file = getPersonFilePath();
-        if (file != null) {
-          loadPersonDataFromFile(file);
+        
+       
         }  
     } 
     
@@ -173,7 +177,7 @@ public class StartApp extends Application {
     * @return new file or null;
     */
     public File getPersonFilePath(){
-        Preferences pref=Preferences.userNodeForPackage(StartApp.class);
+        pref=Preferences.userNodeForPackage(StartApp.class);
         String filePath=pref.get("filePath", null);
         if(filePath!=null){
             return new File(filePath);
@@ -190,7 +194,7 @@ public class StartApp extends Application {
     * @param file the file or null to remove the path
     */
     public void setPersonFilePath(File file){
-       Preferences pref=Preferences.userNodeForPackage(StartApp.class);
+       pref=Preferences.userNodeForPackage(StartApp.class);
        if(file!=null){
            pref.put("filePath", file.getPath());
            //update the stage title.
