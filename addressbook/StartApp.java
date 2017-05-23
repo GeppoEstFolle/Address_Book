@@ -177,7 +177,7 @@ public class StartApp extends Application {
     * @return new file or null;
     */
     public File getPersonFilePath(){
-        pref=Preferences.userNodeForPackage(StartApp.class);
+        Preferences pref=Preferences.userNodeForPackage(StartApp.class);
         String filePath=pref.get("filePath", null);
         if(filePath!=null){
             return new File(filePath);
@@ -194,7 +194,7 @@ public class StartApp extends Application {
     * @param file the file or null to remove the path
     */
     public void setPersonFilePath(File file){
-       pref=Preferences.userNodeForPackage(StartApp.class);
+       Preferences pref=Preferences.userNodeForPackage(StartApp.class);
        if(file!=null){
            pref.put("filePath", file.getPath());
            //update the stage title.
